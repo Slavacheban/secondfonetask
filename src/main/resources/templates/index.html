@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div align="center">
+    <table class="table_2">
+        <caption>User crud operations</caption>
+        <thead>
+        <tr>
+            <th>User ID</th>
+            <th>Birthday</th>
+            <th>email</th>
+            <th>name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="student : ${listStudents}">
+            <td th:text="${student.id}">Student ID</td>
+            <td th:text="${student.birthday}">Birthday</td>
+            <td th:text="${student.email}">eMail</td>
+            <td th:text="${student.name}">Name</td>
+            <td>
+                <a class="button" th:href="@{'/students/edit/' + ${student.id}}">Edit</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <a class="button-delete" th:href="@{'/students/delete/' + ${student.id}}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <br/>
+    <a class="button" th:href="@{'/students/new'}">Create new student</a>
+
+    <form th:action="@{/logout}" method="get">
+        <br/>
+        <button class="button" name="login" type="Submit">Logout</button>
+    </form>
+</div>
+</body>
+</html>

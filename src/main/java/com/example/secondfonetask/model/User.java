@@ -20,16 +20,11 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Entity
 @Table(name = "users")
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+public class User extends CreatableEntity{
 
     @Column(name = "name", nullable = false)
     private String name;
 
     @Email
     private String email;
-
-    private LocalDate birthday;
 }
