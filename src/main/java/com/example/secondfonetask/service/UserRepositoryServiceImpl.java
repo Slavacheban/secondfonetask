@@ -15,10 +15,6 @@ public class UserRepositoryServiceImpl implements UserRepositoryService {
     public UserRepositoryServiceImpl(UserRepository repository) {
         this.repository = repository;
     }
-    @Override
-    public List<User> getAll(int month, int day) {
-        return repository.findByMatchMonthAndMatchDay(month,day);
-    }
 
     @Override
     public List<User> getAll() {

@@ -7,12 +7,6 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface UserRepository extends JpaRepository<User, Integer> {
+public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findAllByName(String name);
-    @Query(value = "SELECT * FROM users " +
-            "WHERE email IS NOT NULL " +
-            "AND extract(MONTH FROM birthday) = :m " +
-            "AND extract(DAY FROM birthday) = :d",
-            nativeQuery = true)
-    List<User> findByMatchMonthAndMatchDay(@Param("m") int month, @Param("d") int day);
 }
