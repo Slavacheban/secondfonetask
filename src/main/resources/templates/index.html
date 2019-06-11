@@ -17,21 +17,21 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="student : ${listUsers}">
-            <td th:text="${student.id}">Student ID</td>
-            <td th:text="${student.birthday}">Birthday</td>
-            <td th:text="${student.email}">eMail</td>
-            <td th:text="${student.name}">Name</td>
+        <tr th:each="user : ${listUsers}">
+            <td th:text="${user.id}">Student ID</td>
+            <td th:text="${user.birthday}">Birthday</td>
+            <td th:text="${user.email}">eMail</td>
+            <td th:text="${user.name}">Name</td>
             <td>
-                <a class="button" th:href="@{'/students/edit/' + ${student.id}}">Edit</a>
+                <a class="button" th:href="@{'/users/edit/' + ${user.id}}">Edit</a>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <a class="button-delete" th:href="@{'/students/delete/' + ${student.id}}">Delete</a>
+                <a class="button-delete" th:href="@{'/users/delete/' + ${user.id}}">Delete</a>
             </td>
         </tr>
         </tbody>
     </table>
     <br/>
-    <a class="button" th:href="@{'/students/new'}">Create new student</a>
+    <a class="button" th:href="@{'/user/new'}">Create new student</a>
 
     <form th:action="@{/logout}" method="get">
         <br/>
